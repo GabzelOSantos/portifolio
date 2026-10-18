@@ -1,7 +1,10 @@
-import Layout from "./layout/Layout";
+import Layout from "./layout";
+import Landpage from "./pages/landpage";
 
 export default function App(){
   return(
-    <Layout>Hello, world!</Layout>
+    <Layout>
+      <Landpage/>
+    </Layout>
   );
 }

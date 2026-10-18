@@ -1,0 +1,24 @@
+@use './variables' as *;
+
+@mixin btns{
+    .btn1{
+        outline: none;
+        all: unset;
+        color: $font-color;
+        text-decoration: underline;
+
+        transition: 0.2s ease-in-out;
+
+        &:hover{
+            transform: scale(1.7);
+            background: $font-gradient;
+            background-clip: text;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        &:active{
+            cursor: progress;
+        }
+    }
+}

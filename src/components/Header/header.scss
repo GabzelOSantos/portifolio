@@ -1,0 +1,45 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as m;
+
+.contentHeader{
+    @include m.btns;
+
+    position: fixed;
+
+    z-index: 1000;
+    
+    width: 100%;
+    height: 8vh;
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background: $primary-color;
+    color: $font-color;
+    font-family: 'Kanit', sans-serif;
+
+    .logo{
+        font-weight: 800;
+        font-size: 2rem;
+
+        background: $font-gradient;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .buttons{
+        display: flex;
+        width: 30vw;
+        justify-content: flex-end;
+    }
+
+    @media (max-width: 800px){
+        height: 5vh;
+
+        .logo{
+            font-size: 1.6rem;
+        }
+    }
+}

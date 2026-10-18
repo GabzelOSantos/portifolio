@@ -1,0 +1,97 @@
+@use '../../abstracts/variables' as *;
+@use '../../abstracts/mixins' as m;
+
+.contentLandpage {
+    font-family: 'Kanit', sans-serif;
+
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    min-height: 1000vh;
+    overflow: hidden;
+    
+    background: $primary-color-darker;
+    color: $font-color;
+
+    .ctx_1, .ctx_2{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 150vh;
+
+        font-size: 1.6rem;
+    }
+
+    .ctx_2{
+        font-size: 1.2rem;
+        gap: 10vw;
+        
+        background-image: 
+            radial-gradient(circle, #0ae 8%, transparent 20%);
+        
+        background-size: 40px 40px;
+        background-position: 0 0;
+        background-repeat: repeat;
+
+        h1{
+            margin-bottom: 10px;
+            
+            span{
+                background: $font-gradient;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        h3{
+        
+            span{
+                background: $font-color-emphasis;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        img{
+            width: 30vw;
+            border: 2px solid $font-color;
+            border-radius: 10px;
+        
+            background: $primary-color-darker;
+            background-image: 
+                radial-gradient(circle, #fff 8%, transparent 20%);
+            background-size: 25px 25px;
+            background-position: 0 0;
+            background-repeat: repeat;
+
+        }
+    }
+
+    @media (max-width: 800px) {
+        .ctx_1{
+            font-size: 1rem;
+        }
+
+        .ctx_2{
+            text-align: center;
+            
+            h1{
+                font-size: 1.4rem;
+            }
+            h3{
+                font-size: 1.2rem;
+            }
+            
+            .content_right{
+                display: none;
+            }
+        }
+    }
+}
