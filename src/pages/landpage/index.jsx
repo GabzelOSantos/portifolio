@@ -6,6 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
 
 import MyIcon from '../assets/my_icon.svg';
+import ReactImg from '../assets/react.svg';
+import SpringImg from '../assets/spring.svg';
+import NodeImg from '../assets/node.svg';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -15,6 +18,7 @@ export default function Landpage() {
     const ctx1Ref = useRef(null);
     const ctx2Ref = useRef(null);
     const ctx3Ref = useRef(null);
+    const ctx3_5Ref = useRef(null);
 
     const canvasRef = useRef(null);
 
@@ -45,7 +49,7 @@ export default function Landpage() {
             });
         }
         
-        
+
         const tl = createTimeline(
             ctx1Ref,
             'center center',
@@ -69,12 +73,22 @@ export default function Landpage() {
         const tl3 = createTimeline(
             ctx3Ref,
             'center center',
-            '+=1300'
+            '+=1500'
         );
 
         timelineAnimation(tl3, ctx3Ref, 1, 1, 1, 0, 0);
         timelineAnimation(tl3, ctx3Ref, 1, 2, 1, 0, 0);
         timelineAnimation(tl3, ctx3Ref, 1, 2, 0, 0);
+
+        const tl3_5 = createTimeline(
+            ctx3_5Ref,
+            'center center',
+            '+=1300'
+        );
+
+        timelineAnimation(tl3_5, ctx3_5Ref, 1.1, 1, 1, 0, 0);
+        timelineAnimation(tl3_5, ctx3_5Ref, 1.3, 2, 1, 0, 0);
+        timelineAnimation(tl3_5, ctx3_5Ref, 1.3, 1, 0, 0, 0);
 
     }, {scope: containerRef});
 
@@ -118,8 +132,7 @@ export default function Landpage() {
             }
         }
 
-        function animation() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        function drawSquare(x, y){
             ctx.strokeStyle = '#0ae';
             ctx.lineWidth = 2;
 
@@ -154,10 +167,16 @@ export default function Landpage() {
                 const p2 = projectedPoint(rotatedV2);
 
                 ctx.beginPath();
-                ctx.moveTo(p1.x, p1.y);
-                ctx.lineTo(p2.x, p2.y);
+                ctx.moveTo((p1.x + x), (p1.y + y));
+                ctx.lineTo((p2.x + x), (p2.y + y));
                 ctx.stroke();
             }
+        }
+
+        function animation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawSquare(0, 0);
 
             angleRef.current += 0.003;
 
@@ -173,27 +192,46 @@ export default function Landpage() {
     return (
         <div className="contentLandpage" ref={containerRef}>
             <div className='ctx_1'>
-                <h1 ref={ctx1Ref}>Seja bem vindo!</h1>
+                <h1 ref={ctx1Ref}>Seja bem vindo(a)!</h1>
             </div>
 
             <div className='ctx_2' ref={ctx2Ref}>
                 <div>
-                    <h1>Meu nome é <span>Gabriel</span></h1>
+                    <h1>Meu nome é <span><strong>Gabriel</strong></span></h1>
 
                     <h3>Sou um desenvolvedor full-stack junior<br/>
                     e desenvolvo APIs e aplicações mobile, <br/>
                     front-end e back-end utilizando <span>React, <br/>
                     React-Native, Spring-Boot e Node.js
                     </span></h3>
+
+                    <div className="content_img">
+                        <div className="content">
+                            <h3>React</h3>
+                            <img src={ReactImg} alt="React" />
+                        </div>
+                        <div className="content">
+                            <h3>Spring-Boot</h3>
+                            <img src={SpringImg} alt="Spring" />
+                        </div>
+                        <div className="content">
+                            <h3>Node.js</h3>
+                            <img src={NodeImg} alt="Node" />
+                        </div>
+                    </div>
                 </div>
                 
-                <div> 
+                <div className='content_right'> 
                     <img src={MyIcon} alt="Pixel Art"/>
                 </div>
             </div>
 
             <div className="ctx_3" ref={ctx3Ref}>
-                <canvas ref={canvasRef} width={800} height={600} />
+                <canvas ref={canvasRef} width={800} height={600}/>
+            </div>
+
+            <div className='ctx_3.5' ref={ctx3_5Ref}>
+                <h1>Teste</h1>
             </div>
         </div>
     );

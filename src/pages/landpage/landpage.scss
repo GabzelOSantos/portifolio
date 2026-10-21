@@ -30,13 +30,13 @@
     }
 
     .ctx_2{
-        font-size: 1.2rem;
+        font-size: 1rem;
         gap: 10vw;
         
         background-image: 
-            radial-gradient(circle, #0ae 8%, transparent 20%);
+            radial-gradient(circle, rgba(0, 170, 238, 0.2) 8%, transparent 10%);
         
-        background-size: 40px 40px;
+        background-size: 20px 20px;
         background-position: 0 0;
         background-repeat: repeat;
 
@@ -60,28 +60,63 @@
         }
 
         img{
-            width: 30vw;
-            border: 2px solid $font-color;
+            width: 25vw;
+            border: 2px solid $font-color-emphasis;
             border-radius: 10px;
         
             background: $primary-color-darker;
             background-image: 
-                radial-gradient(circle, #fff 8%, transparent 20%);
+                radial-gradient(circle, rgba(255, 255, 255, 0.2) 8%, transparent 20%);
             background-size: 25px 25px;
             background-position: 0 0;
             background-repeat: repeat;
 
+            box-shadow: 0 0 10px 15px rgba(0, 170, 238, 0.2);
+
+        }
+
+        .content_img{
+            margin-top: 20px;
+            
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            width: 40vw;
+            height: auto;
+
+            flex-wrap: wrap;
+            .content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+
+                border: 1px solid $font-color-emphasis;
+                padding: 10px;
+                border-radius: 10px 0 10px 0;
+                background: linear-gradient(to right, $primary-color-darker, $primary-color);
+
+                img{
+                    background: none;
+                    width: 3vw;
+                    user-select: none;
+                    
+                    filter: brightness(0) saturate(100%) invert(43%) 
+                    sepia(93%) saturate(1352%) hue-rotate(170deg) 
+                    brightness(101%) contrast(101%);
+                }
+            }
         }
     }
 
     @media (max-width: 800px) {
         .ctx_1{
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
 
         .ctx_2{
             text-align: center;
-            
             h1{
                 font-size: 1.4rem;
             }
@@ -91,6 +126,24 @@
             
             .content_right{
                 display: none;
+            }
+
+            .content_img{
+                width: 80%;
+                height: auto;
+
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+
+                margin: 20px auto 0;
+
+                .content{
+                    img{
+                        width: 10vw;
+                    }
+                }
             }
         }
     }

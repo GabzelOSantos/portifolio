@@ -24,15 +24,29 @@
         font-weight: 800;
         font-size: 2rem;
 
-        background: $font-gradient;
-        background-clip: text;
-        color: transparent;
+        user-select: none;
+
+        strong {
+            font-weight: inherit;
+            background: $font-gradient;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            span {
+                background: none;
+                color: #fff;
+                -webkit-text-fill-color: #fff;
+            }
+        }
     }
 
     .buttons{
         display: flex;
         width: 30vw;
         justify-content: flex-end;
+
+        user-select: none;
     }
 
     @media (max-width: 800px){
